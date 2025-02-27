@@ -1,0 +1,91 @@
+ body{
+    --header-w-close: 78px;
+    --header-w-open: 220px;
+    --color-icon-select: rgb(0, 0, 0);
+    --color-icon: rgb(0,0,0);
+}
+
+#header-container {
+    display: flex;
+}
+#header-pagedjs{
+    display: none;
+}
+
+
+
+ #header-pagedjs{
+    font-family: Arial, Helvetica, sans-serif;
+    position: fixed;
+    box-sizing: border-box;
+    top: 10px;
+    right: 40px;
+    z-index: 999;
+}
+
+
+
+
+#header-pagedjs button {
+    display: flex;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+    border: none;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 8px 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    color: var(--color-icon);
+    background-color: rgb(225, 225, 225, 0);
+    border: 2px solid rgb(225, 225, 225);
+    border-radius: 12px;
+    
+}
+
+
+#header-pagedjs button svg {
+    width: 100%;
+    fill: var(--color-icon);
+}
+
+
+#header-pagedjs button::before{
+    content: attr(data-text);
+    color: var(--color-icon-select)!important;
+    position: absolute;
+    width: 200px;
+    left: -216px;
+    text-align: right;
+    font-size: 18px;
+    display: none;
+    font-weight: bold;
+    /* background-color:  rgba(225, 225, 225, 0.3);
+    padding: 3px 8px; */
+}
+
+/* checked */
+#input-screen:checked ~ #button-screen, 
+#input-print:checked ~ #button-print-preview { border: 3px solid var(--color-icon); }
+
+/* disabled */
+button:disabled { cursor: none; }
+#button-print:disabled svg{ cursor: none; fill: #bbb!important; }
+
+/* hover */
+#header-pagedjs button:hover{ border: 2px solid var(--color-icon-select)!important; }
+#header-pagedjs button:hover::before{ display: block!important; }
+
+
+@media screen {
+    #header-pagedjs{ display: block; }
+}
+
+
+
+.hide {
+    display: none !important;
+}
+
+
